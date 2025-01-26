@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmoBay - AI-Powered Emotional Wellness Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+        }
+
+        :root {
+            --primary: #4f46e5;
+            --secondary: #818cf8;
+            --accent: #10b981;
+            --text: #1e293b;
+        }
+
+        .header {
+            background: white;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            color: black;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 6rem 5% 4rem;
+            background: linear-gradient(135deg, #f0f4ff 0%, #f8fafc 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background-color: white;
+            color: black;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--accent);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background-color: #BDCCD4;
+            color: white;
+        }
+
+        .features {
+            padding: 4rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            background: white;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 12px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .testimonials {
+            padding: 4rem 5%;
+            background: #f8fafc;
+        }
+
+        .team-section {
+            padding: 4rem 5%;
+            background: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid #005069; /* Updated to #005069 */
+        }
+
+        .advisor-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        footer {
+            background: #005069; /* Updated to #005069 */
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-icon:hover {
+            opacity: 0.8;
+        }
+
+        .email-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .email-icon:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo" style="cursor: pointer;" onclick="window.location.reload()">EmoBay</div>
+        <div class="header-icons" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 1.5rem;">
+            <a href="mailto:info@emobay.org" class="email-icon" 
+               style="color: black; text-decoration: none; transition: all 0.3s ease;" 
+               onmouseover="this.style.transform='scale(1.1)'; this.style.color='#4f46e5'" 
+               onmouseout="this.style.transform='scale(1)'; this.style.color='black'">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.instagram.com/try_emobay/" class="social-icon" target="_blank" 
+               style="color: black; text-decoration: none; transition: all 0.3s ease;" 
+               onmouseover="this.style.transform='scale(1.1)'; this.style.color='#4f46e5'" 
+               onmouseout="this.style.transform='scale(1)'; this.style.color='black'">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </header>
+
+    <section class="hero" style="position: relative; overflow: hidden;">
+    <h1 style="opacity: 0; transform: translateY(20px); transition: all 1s ease;" id="heroTitle">Your Compassionate AI Companion for Emotional Wellbeing</h1>
+    <p style="opacity: 0; transform: translateY(20px); transition: all 1s ease 0.2s;" id="heroText">24/7 support combining AI empathy with psychological expertise to build emotional resilience</p>
+    <a href="https://chat.emobay.org" class="cta-button" 
+       style="opacity: 0; transform: translateY(20px); transition: all 1s ease 0.4s;" 
+       id="ctaButton"
+       onmouseover="this.style.boxShadow='0 6px 12px rgba(0,0,0,0.15)'; this.style.backgroundColor='#4f46e5'" 
+       onmouseout="this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)'; this.style.backgroundColor='white'">
+        Try EmoBay :-)
+    </a>
+</section>
+
+    <!-- Features Section -->
+    <section id="features" style="padding: 4rem 2rem; background-color: white; position: relative;">
+        <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2rem; color: #1e293b;">Main Features</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+            <div style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease; cursor: pointer;" 
+                 onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" 
+                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.05)'">
+                <h3 style="margin: 0 0 1rem; color: #4f46e5; font-size: 1.25rem; font-weight: 600;">Core AI</h3>
+                <p style="margin: 0; color: #64748b; line-height: 1.6; font-size: 1rem;">Our fine-tuned LLM is trained on psychological datasets, ensuring empathetic and clinically validated interactions.</p>
+            </div>
+            <div style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease; cursor: pointer;" 
+                 onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" 
+                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.05)'">
+                <h3 style="margin: 0 0 1rem; color: #4f46e5; font-size: 1.25rem; font-weight: 600;">Safety Alignment</h3>
+                <p style="margin: 0; color: #64748b; line-height: 1.6; font-size: 1rem;">EmoBay follows a strict risk management protocol, ensuring safe and responsible communication.</p>
+            </div>
+            <div style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease; cursor: pointer;" 
+                 onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" 
+                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.05)'">
+                <h3 style="margin: 0 0 1rem; color: #4f46e5; font-size: 1.25rem; font-weight: 600;">Context-Aware Prompts</h3>
+                <p style="margin: 0; color: #64748b; line-height: 1.6; font-size: 1rem;">Our AI ensures responses are always empathetic and aligned with clinical best practices.</p>
+            </div>
+            <div style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease; cursor: pointer;" 
+                 onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" 
+                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.05)'">
+                <h3 style="margin: 0 0 1rem; color: #4f46e5; font-size: 1.25rem; font-weight: 600;">Matching Algorithm</h3>
+                <p style="margin: 0; color: #64748b; line-height: 1.6; font-size: 1rem;">Our AI-driven algorithm helps match users with therapists based on their goals and preferences.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="team" style="position: relative;">
+        <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2rem; color: #1e293b;">Our Founding Team</h2>
+        <div class="team-grid">
+            <div class="team-member" style="transition: all 0.3s ease;" 
+                 onmouseover="this.style.transform='scale(1.02)'" 
+                 onmouseout="this.style.transform='scale(1)'">
+                <img src="https://julin.org/wp-content/uploads/2025/01/1c810ccb1215cb7ac56f6ba18aa86f3.png" 
+                     alt="Eunice Mak" 
+                     style="transition: all 0.3s ease; cursor: pointer;"
+                     onmouseover="this.style.transform='scale(1.1)'" 
+                     onmouseout="this.style.transform='scale(1)'">
+                <h3 style="color: black; margin-top: 1rem;">Eunice Mak</h3> <!-- Updated to black -->
+                <p style="color: #64748b;">Director</p>
+            </div>
+            <div class="team-member" style="transition: all 0.3s ease;" 
+                 onmouseover="this.style.transform='scale(1.02)'" 
+                 onmouseout="this.style.transform='scale(1)'">
+                <img src="https://julin.org/wp-content/uploads/2025/01/1cc847277c6b37fe471461a4beab671.png" 
+                     alt="Ju Lin" 
+                     style="transition: all 0.3s ease; cursor: pointer;"
+                     onmouseover="this.style.transform='scale(1.1)'" 
+                     onmouseout="this.style.transform='scale(1)'">
+                <h3 style="color: black; margin-top: 1rem;">Ju Lin</h3> <!-- Updated to black -->
+                <p style="color: #64748b;">Tech Lead</p>
+            </div>
+            <div class="team-member" style="transition: all 0.3s ease;" 
+                 onmouseover="this.style.transform='scale(1.02)'" 
+                 onmouseout="this.style.transform='scale(1)'">
+                <img src="https://julin.org/wp-content/uploads/2025/01/75f651765d833500b700c8c3a17988c.png" 
+                     alt="Adam Li" 
+                     style="transition: all 0.3s ease; cursor: pointer;"
+                     onmouseover="this.style.transform='scale(1.1)'" 
+                     onmouseout="this.style.transform='scale(1)'">
+                <h3 style="color: black; margin-top: 1rem;">Adam Li</h3> <!-- Updated to black -->
+                <p style="color: #64748b;">Management</p>
+            </div>
+        </div>
+
+        <h3 style="text-align: center; margin: 4rem 0 2rem; font-size: 1.75rem; color: #1e293b;">Advisory Board</h3>
+        
+        <div class="advisor-card" style="background: #f8fafc; border-radius: 12px; padding: 2rem; margin: 2rem 0; text-align: left;">
+            <h3 style="color: black; margin-bottom: 1rem;">Prof. Xiangen Hu</h3> <!-- Updated to black -->
+            <p style="color: #64748b; margin-top: 1rem;">Professor Xiangen Hu is a renowned Psychologist and Computer Scientist. He is the Chair Professor of Learning Sciences and Technologies at Hong Kong Polytechnic University. He received his Doctor of Philosophy degree in Cognitive Psychology from the University of California, Irvine in 1991 and 1993 respectively. He took up an Assistant Professorship at The University of Memphis in 1993 and was promoted to Associate Professor in 2000 and Professor in the Department of Psychology in 2009. Meanwhile, he has been appointed Prof and Dean of the School of Psychology in the Central China Normal University since 2016 on a visiting basis where he has established good connections with the Chinese mainland. He joined PolyU in Dec 2023 as Director of the Institute for Higher Education Research and Development. His research areas include Mathematical Psychology, Research Design and Statistics, and Cognitive Psychology.
+</p>
+        </div>
+
+        <div class="advisor-card" style="background: #f8fafc; border-radius: 12px; padding: 2rem; margin: 2rem 0; text-align: left;">
+            <h3 style="color: black; margin-bottom: 1rem;">Dr. Allen Dorcas</h3> <!-- Updated to black -->
+            <p style="color: #64748b; margin-top: 1rem;">Dr. Allen Dorcas is a distinguished Counselling Psychologist and educator with over 25 years of experience in psychology and counselling. He holds a PhD in Psychology from The University of Hong Kong and a Master’s in Counselling Psychology from the University of Montreal. Since 1995, he has been teaching at The Hong Kong Polytechnic University, where he has received multiple teaching excellence awards. Dr. Dorcas has also practiced as a Counselling Psychologist, working with diverse clients to foster resilience and self-discovery. With over 30 years of mindfulness practice, he integrates holistic approaches into his work, making him a trusted voice in mental wellness and a perfect fit for EmoBay’s mission.
+</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: #005069; padding: 3rem 0; text-align: center; color: white; position: relative;">
+        <div style="margin-bottom: 2rem; display: flex; justify-content: center; gap: 2rem;">
+            <a href="mailto:info@emobay.org" 
+               style="color: white; text-decoration: none; transition: all 0.3s ease;" 
+               onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='0.8'" 
+               onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'">
+                <i class="fas fa-envelope" style="font-size: 1.5rem;"></i>
+            </a>
+            <a href="https://www.instagram.com/try_emobay/" 
+               style="color: white; text-decoration: none; transition: all 0.3s ease;" 
+               onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='0.8'" 
+               onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'">
+                <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
+            </a>
+        </div>
+        <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">© 2025 EmoBay. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple animation trigger
+        window.addEventListener('load', () => {
+            const animateElements = [document.getElementById('heroTitle'), 
+                                   document.getElementById('heroText'), 
+                                   document.getElementById('ctaButton')];
+            
+            animateElements.forEach(el => {
+                if(el) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Interactive header
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('.header');
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
