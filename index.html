@@ -1,459 +1,663 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>EmoBay - Your AI Psychosocial Bestie Available Anytime, Anywhere!</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <link rel="icon" type="image/jpg" href="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/logo.jpg">
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                font-family: 'Segoe UI', sans-serif;
-            }
-    
-            body {
-                background-color: #f8fafc;
-            }
-    
-            :root {
-                --primary: #4f46e5;
-                --secondary: #818cf8;
-                --accent: #10b981;
-                --text: #1e293b;
-            }
-    
-            .header {
-                background: white;
-                padding: 1rem 5%;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                position: sticky;
-                top: 0;
-                z-index: 100;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-    
-            .logo-container {
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-                cursor: pointer;
-            }
-    
-            .logo-container img {
-                height: 30px; /* Adjusted logo size */
-                width: auto;
-            }
-    
-            .logo-container span {
-                font-size: 1.5rem; /* Adjusted font size */
-                font-weight: 600;
-                color: var(--text);
-            }
-    
-            .header-icons {
-                display: flex;
-                align-items: center;
-                gap: 0rem;
-            }
-    
-            .header-icons a {
-                color: black;
-                text-decoration: none;
-                transition: all 0.3s ease;
-            }
-    
-            .header-icons a:hover {
-                color: var(--primary);
-                transform: scale(1.1);
-            }
-    
-            .hero {
-                text-align: center;
-                padding: 15rem 5% 4rem;
-                background: linear-gradient(135deg, #f0f4ff 0%, #f8fafc 100%);
-            }
-    
-            .hero h1 {
-                font-size: 2.8rem;
-                margin-bottom: 1.5rem;
-                color: var(--text);
-                max-width: 800px;
-                margin: 0 auto 2rem;
-            }
-    
-            .hero p {
-                font-size: 1.1rem;
-                color: #64748b;
-                max-width: 600px;
-                margin: 0 auto 2.5rem;
-                line-height: 1.6;
-            }
-    
-            .cta-button {
-                margin-bottom: 10rem;
-                background-color: white;
-                color: black;
-                padding: 1rem 2.5rem;
-                border-radius: 8px;
-                text-decoration: none;
-                font-weight: 600;
-                transition: transform 0.3s ease, background-color 0.3s ease;
-                display: inline-block;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                border: 2px solid var(--accent);
-            }
-    
-            .cta-button:hover {
-                transform: translateY(-2px);
-                background-color: #BDCCD4;
-                color: white;
-            }
-    
-            .features {
-                padding: 4rem 5%;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 2rem;
-                background: white;
-            }
-    
-            .feature-card {
-                text-align: center;
-                padding: 2rem;
-                border-radius: 12px;
-                background: #fff;
-                border: 1px solid #e2e8f0;
-            }
-    
-            .feature-card h3 {
-                font-size: 1.5rem;
-                margin-bottom: 1rem;
-                color: var(--primary);
-            }
-    
-            .feature-card p {
-                font-size: 1rem;
-                color: #64748b;
-                line-height: 1.6;
-            }
-    
-            .testimonials {
-                padding: 4rem 5%;
-                background: #f8fafc;
-            }
-    
-            .team-section {
-                padding: 4rem 5%;
-                background: white;
-            }
-    
-            .team-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 2rem;
-                max-width: 1200px;
-                margin: 2rem auto;
-            }
-    
-            .team-member {
-                text-align: center;
-                padding: 1.5rem;
-            }
-    
-            .team-member img {
-                width: 120px;
-                height: 120px;
-                border-radius: 50%;
-                object-fit: cover;
-                margin-bottom: 1rem;
-                border: 3px solid #005069; /* Updated to #005069 */
-            }
-    
-            .advisor-card {
-                background: #f8fafc;
-                border-radius: 12px;
-                padding: 2rem;
-                margin: 2rem 0;
-                text-align: left;
-            }
-    
-            footer {
-                background: #005069; /* Updated to #005069 */
-                color: white;
-                padding: 3rem 5%;
-                text-align: center;
-            }
-    
-            .social-icon {
-                color: white;
-                font-size: 1.5rem;
-                margin: 0 1rem;
-                transition: opacity 0.3s ease;
-            }
-    
-            .social-icon:hover {
-                opacity: 0.8;
-            }
-    
-            .email-icon {
-                color: white;
-                font-size: 1.5rem;
-                margin: 0 1rem;
-                transition: opacity 0.3s ease;
-            }
-    
-            .email-icon:hover {
-                opacity: 0.8;
-            }
-    
-            /* New CSS for the cursor-following image */
-            #cursorLogo {
-                position: fixed;
-                top: 0;
-                left: 0;
-                pointer-events: none;
-                z-index: 10000;
-                transform: translate(-50%, -50%);
-                transition: transform 0.1s ease-out;
-                width: 40px;
-                height: auto;
-            }
-        </style>
-    </head>
-    <body>
-        <header class="header">
-            <!-- Logo and EmoBay text -->
-            <div class="logo-container" onclick="window.location.href='https://emobay.org'">
-                <img src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/logo.jpg" alt="EmoBay Logo">
-                <span>EmoBay</span>
-            </div>
-    
-            <!-- Header icons (email and Instagram) -->
-            <div class="header-icons">
-                <a href="https://www.instagram.com/try_emobay/" class="social-icon" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="mailto:info@emobay.org" class="email-icon">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-        </header>
-    
-        <section class="hero" style="position: relative; overflow: hidden;">
-            <h1 style="opacity: 0; transform: translateY(20px); transition: all 1s ease;" id="heroTitle">Your Compassionate AI Companion for Emotional Wellbeing</h1>
-            <p style="opacity: 0; transform: translateY(20px); transition: all 1s ease 0.2s;" id="heroText">Your AI psychosocial bestie available anytime, anywhere!</p>
-            <a href="https://chat.emobay.org" class="cta-button" 
-               style="opacity: 0; transform: translateY(20px); transition: all 1s ease 0.4s;" 
-               id="ctaButton"
-               onmouseover="this.style.boxShadow='0 6px 12px rgba(0,0,0,0.15)'; this.style.backgroundColor='#4f46e5'" 
-               onmouseout="this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)'; this.style.backgroundColor='white'">
-                Try EmoBay (Demo)
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EmoBay - Your AI Psychosocial Bestie Available Anytime, Anywhere!</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/jpg"
+      href="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/logo.jpg"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        background-color: #f8fafc;
+      }
+
+      :root {
+        --primary: #4f46e5;
+        --secondary: #818cf8;
+        --accent: #10b981;
+        --text: #1e293b;
+      }
+
+      .header {
+        background: white;
+        padding: 1rem 5%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        cursor: pointer;
+      }
+
+      .logo-container img {
+        height: 30px;
+        width: auto;
+      }
+
+      .logo-container span {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .header-icons {
+        display: flex;
+        align-items: center;
+        gap: 0rem;
+      }
+
+      .header-icons a {
+        color: black;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .header-icons a:hover {
+        color: var(--primary);
+        transform: scale(1.1);
+      }
+
+      .hero {
+        text-align: center;
+        padding: 15rem 5% 4rem;
+        background: linear-gradient(135deg, #f0f4ff 0%, #f8fafc 100%);
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+        color: var(--text);
+        max-width: 800px;
+        margin: 0 auto 2rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        color: #64748b;
+        max-width: 600px;
+        margin: 0 auto 2.5rem;
+        line-height: 1.6;
+      }
+
+      .cta-button {
+        margin-bottom: 10rem;
+        background-color: white;
+        color: black;
+        padding: 1rem 2.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        display: inline-block;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: 2px solid var(--accent);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        background-color: #bdccd4;
+        color: white;
+      }
+
+      .features {
+        padding: 4rem 5%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        background: white;
+      }
+
+      .feature-card {
+        text-align: center;
+        padding: 2rem;
+        border-radius: 12px;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary);
+      }
+
+      .feature-card p {
+        font-size: 1rem;
+        color: #64748b;
+        line-height: 1.6;
+      }
+
+      .testimonials {
+        padding: 4rem 5%;
+        background: #f8fafc;
+      }
+
+      .team-section {
+        padding: 4rem 5%;
+        background: white;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 2rem auto;
+      }
+
+      .team-member {
+        text-align: center;
+        padding: 1.5rem;
+      }
+
+      .team-member img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        border: 3px solid #005069;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .advisor-card {
+        background: #f8fafc;
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+        text-align: left;
+      }
+
+      footer {
+        background: #005069;
+        color: white;
+        padding: 3rem 5%;
+        text-align: center;
+      }
+
+      .social-icon {
+        color: white;
+        font-size: 1.5rem;
+        margin: 0 1rem;
+        transition: opacity 0.3s ease;
+      }
+
+      .social-icon:hover {
+        opacity: 0.8;
+      }
+
+      .email-icon {
+        color: white;
+        font-size: 1.5rem;
+        margin: 0 1rem;
+        transition: opacity 0.3s ease;
+      }
+
+      .email-icon:hover {
+        opacity: 0.8;
+      }
+
+      /* Cursor-following image with lag effect – initially hidden */
+      #cursorLogo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 10000;
+        transform: translate(-50%, -50%);
+        transition: transform 0.1s ease-out;
+        width: 40px;
+        height: auto;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <!-- Logo and EmoBay text -->
+      <div class="logo-container" onclick="window.location.href='https://emobay.org'">
+        <img
+          src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/logo.jpg"
+          alt="EmoBay Logo"
+        />
+        <span>EmoBay</span>
+      </div>
+      <!-- Header icons (email and Instagram) -->
+      <div class="header-icons">
+        <a
+          href="https://www.instagram.com/try_emobay/"
+          class="social-icon"
+          target="_blank"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="mailto:info@emobay.org" class="email-icon">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </header>
+
+    <section class="hero" style="position: relative; overflow: hidden;">
+      <h1
+        style="opacity: 0; transform: translateY(20px); transition: all 1s ease;"
+        id="heroTitle"
+      >
+        Your Compassionate AI Companion for Emotional Wellbeing
+      </h1>
+      <p
+        style="opacity: 0; transform: translateY(20px); transition: all 1s ease 0.2s;"
+        id="heroText"
+      >
+        Your AI psychosocial bestie available anytime, anywhere!
+      </p>
+      <a
+        href="https://chat.emobay.org"
+        class="cta-button"
+        style="opacity: 0; transform: translateY(20px); transition: all 1s ease 0.4s;"
+        id="ctaButton"
+        onmouseover="this.style.boxShadow='0 6px 12px rgba(0,0,0,0.15)'; this.style.backgroundColor='#4f46e5'"
+        onmouseout="this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)'; this.style.backgroundColor='white'"
+      >
+        Try EmoBay (Demo)
+      </a>
+    </section>
+
+    <!-- Features Section -->
+    <section
+      id="features"
+      style="padding: 4rem 2rem; background-color: white; position: relative;"
+    >
+      <h2
+        style="text-align: center; margin-bottom: 3rem; font-size: 2rem; color: #1e293b;"
+      >
+        Main Features
+      </h2>
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;"
+      >
+        <div
+          style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease; cursor: pointer;"
+          onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.05)'"
+        >
+          <h3
+            style="margin: 0 0 1rem; color: #4f46e5; font-size: 1.25rem; font-weight: 600;"
+          >
+            Finetuned LLMs
+          </h3>
+          <p
+            style="margin: 0; color: #64748b; line-height: 1.6; font-size: 1rem;"
+          >
+            EmoBay's fine-tuned LLMs are trained on psychological datasets,
+            ensuring empathetic and clinically validated interactions.
+          </p>
+        </div>
+        <div
+          style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease; cursor: pointer;"
+          onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.05)'"
+        >
+          <h3
+            style="margin: 0 0 1rem; color: #4f46e5; font-size: 1.25rem; font-weight: 600;"
+          >
+            Safety Alignment
+          </h3>
+          <p
+            style="margin: 0; color: #64748b; line-height: 1.6; font-size: 1rem;"
+          >
+            EmoBay follows a strict risk management protocol, ensuring safe and
+            responsible communication.
+          </p>
+        </div>
+        <div
+          style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease; cursor: pointer;"
+          onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.05)'"
+        >
+          <h3
+            style="margin: 0 0 1rem; color: #4f46e5; font-size: 1.25rem; font-weight: 600;"
+          >
+            Context Awareness
+          </h3>
+          <p
+            style="margin: 0; color: #64748b; line-height: 1.6; font-size: 1rem;"
+          >
+            EmoBay utilizes NLP to understand users' underlying thoughts and
+            emotions, ensuring responses are safer, more considerate, and
+            clinically informed.
+          </p>
+        </div>
+        <div
+          style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease; cursor: pointer;"
+          onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.05)'"
+        >
+          <h3
+            style="margin: 0 0 1rem; color: #4f46e5; font-size: 1.25rem; font-weight: 600;"
+          >
+            Matching Algorithm
+          </h3>
+          <p
+            style="margin: 0; color: #64748b; line-height: 1.6; font-size: 1rem;"
+          >
+            EmoBay's AI-powered algorithm matches users with the most suitable
+            online therapy sessions, practice tools, or theraphist based on
+            their unique emotional needs and preferences.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Current Progress Section -->
+    <section
+      id="current-progress"
+      style="padding: 4rem 5%; background: #f8fafc; text-align: center;"
+    >
+      <h2
+        style="margin-bottom: 2rem; font-size: 2rem; color: #1e293b;"
+      >
+        Current Progress
+      </h2>
+      <img
+        src="https://github.com/emobay/emobay.github.io/blob/main/source/banner.png?raw=true"
+        alt="Current Progress"
+        style="max-width: 100%; height: auto; border-radius: 12px;"
+      />
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="team" style="position: relative;">
+      <h2
+        style="text-align: center; margin-bottom: 3rem; font-size: 2rem; color: #1e293b;"
+      >
+        Our Team
+      </h2>
+      <div class="team-grid">
+        <div
+          class="team-member"
+          style="transition: all 0.3s ease;"
+          onmouseover="this.style.transform='scale(1.02)'"
+          onmouseout="this.style.transform='scale(1)'"
+        >
+          <img
+            src="https://julin.org/wp-content/uploads/2025/01/1c810ccb1215cb7ac56f6ba18aa86f3.png"
+            alt="Eunice Mak"
+            style="transition: all 0.3s ease; cursor: pointer;"
+            onmouseover="this.style.transform='scale(1.1)'"
+            onmouseout="this.style.transform='scale(1)'"
+          />
+          <h3 style="color: black; margin-top: 1rem;">Eunice Mak</h3>
+          <p style="color: #64748b;">Director</p>
+        </div>
+        <div
+          class="team-member"
+          style="transition: all 0.3s ease;"
+          onmouseover="this.style.transform='scale(1.02)'"
+          onmouseout="this.style.transform='scale(1)'"
+        >
+          <img
+            src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/ju.png"
+            alt="Ju Lin"
+            style="transition: all 0.3s ease; cursor: pointer;"
+            onmouseover="this.style.transform='scale(1.1)'"
+            onmouseout="this.style.transform='scale(1)'"
+          />
+          <h3 style="color: black; margin-top: 1rem;">Ju Lin</h3>
+          <p style="color: #64748b;">Tech Lead</p>
+        </div>
+        <div
+          class="team-member"
+          style="transition: all 0.3s ease;"
+          onmouseover="this.style.transform='scale(1.02)'"
+          onmouseout="this.style.transform='scale(1)'"
+        >
+          <img
+            src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/adam.png"
+            alt="Adam Li"
+            style="transition: all 0.3s ease; cursor: pointer;"
+            onmouseover="this.style.transform='scale(1.1)'"
+            onmouseout="this.style.transform='scale(1)'"
+          />
+          <h3 style="color: black; margin-top: 1rem;">Adam Li</h3>
+          <p style="color: #64748b;">Management</p>
+        </div>
+      </div>
+
+      <h3
+        style="text-align: center; margin: 4rem 0 2rem; font-size: 1.75rem; color: #1e293b;"
+      >
+        Advisors
+      </h3>
+
+      <section
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin: 2rem 0;"
+      >
+        <!-- Advisor Card 1 -->
+        <div
+          class="advisor-card"
+          style="background: #f8fafc; border-radius: 12px; padding: 2rem; text-align: left;"
+        >
+          <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+            <!-- Advisor image wrapped in a link with hover effect -->
+            <a
+              href="https://www.polyu.edu.hk/apss/people/academic-staff/prof-hu-xiangen/"
+              style="text-decoration: none;"
+            >
+              <img
+                src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/profhu2.png"
+                alt="Prof. Xiangen Hu"
+                style="width: 120px; height: 120px; border-radius: 50%; margin-right: 1.5rem; cursor: pointer; transition: all 0.3s ease;"
+                onmouseover="this.style.transform='scale(1.1)'"
+                onmouseout="this.style.transform='scale(1)'"
+              />
             </a>
-        </section>
-    
-        <!-- Features Section -->
-        <section id="features" style="padding: 4rem 2rem; background-color: white; position: relative;">
-            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2rem; color: #1e293b;">Main Features</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
-                <div style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease; cursor: pointer;" 
-                     onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" 
-                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.05)'">
-                    <h3 style="margin: 0 0 1rem; color: #4f46e5; font-size: 1.25rem; font-weight: 600;">Finetuned LLMs</h3>
-                    <p style="margin: 0; color: #64748b; line-height: 1.6; font-size: 1rem;">EmoBay's fine-tuned LLMs are trained on psychological datasets, ensuring empathetic and clinically validated interactions.</p>
-                </div>
-                <div style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease; cursor: pointer;" 
-                     onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" 
-                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.05)'">
-                    <h3 style="margin: 0 0 1rem; color: #4f46e5; font-size: 1.25rem; font-weight: 600;">Safety Alignment</h3>
-                    <p style="margin: 0; color: #64748b; line-height: 1.6; font-size: 1rem;">EmoBay follows a strict risk management protocol, ensuring safe and responsible communication.</p>
-                </div>
-                <div style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease; cursor: pointer;" 
-                     onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" 
-                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.05)'">
-                    <h3 style="margin: 0 0 1rem; color: #4f46e5; font-size: 1.25rem; font-weight: 600;">Context Awareness</h3>
-                    <p style="margin: 0; color: #64748b; line-height: 1.6; font-size: 1rem;">EmoBay utilizes NLP to understand users' underlying thoughts and emotions, ensuring responses are safer, more considerate, and clinically informed.</p>
-                </div>
-                <div style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease; cursor: pointer;" 
-                     onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" 
-                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.05)'">
-                    <h3 style="margin: 0 0 1rem; color: #4f46e5; font-size: 1.25rem; font-weight: 600;">Matching Algorithm</h3>
-                    <p style="margin: 0; color: #64748b; line-height: 1.6; font-size: 1rem;">EmoBay's AI-powered algorithm matches users with the most suitable online therapy sessions, practice tools, or theraphist based on their unique emotional needs and preferences.</p>
-                </div>
-            </div>
-        </section>
-    
-        <!-- Current Progress Section -->
-        <section id="current-progress" style="padding: 4rem 5%; background: #f8fafc; text-align: center;">
-            <h2 style="margin-bottom: 2rem; font-size: 2rem; color: #1e293b;">Current Progress</h2>
-            <img src="https://github.com/emobay/emobay.github.io/blob/main/source/banner.png?raw=true" alt="Current Progress" style="max-width: 100%; height: auto; border-radius: 12px;">
-        </section>
-    
-        <!-- Team Section -->
-        <section class="team-section" id="team" style="position: relative;">
-            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2rem; color: #1e293b;">Our Team</h2>
-            <div class="team-grid">
-                <div class="team-member" style="transition: all 0.3s ease;" 
-                     onmouseover="this.style.transform='scale(1.02)'" 
-                     onmouseout="this.style.transform='scale(1)'">
-                    <img src="https://github.com/emobay/emobay.github.io/blob/main/source/eunice.png?raw=true" 
-                         alt="Eunice Mak" 
-                         style="transition: all 0.3s ease; cursor: pointer;"
-                         onmouseover="this.style.transform='scale(1.1)'" 
-                         onmouseout="this.style.transform='scale(1)'">
-                    <h3 style="color: black; margin-top: 1rem;">Eunice Mak</h3>
-                    <p style="color: #64748b;">Director</p>
-                </div>
-                <div class="team-member" style="transition: all 0.3s ease;" 
-                     onmouseover="this.style.transform='scale(1.02)'" 
-                     onmouseout="this.style.transform='scale(1)'">
-                    <img src="https://github.com/emobay/emobay.github.io/blob/main/source/ju.png?raw=true" 
-                         alt="Ju Lin" 
-                         style="transition: all 0.3s ease; cursor: pointer;"
-                         onmouseover="this.style.transform='scale(1.1)'" 
-                         onmouseout="this.style.transform='scale(1)'">
-                    <h3 style="color: black; margin-top: 1rem;">Ju Lin</h3>
-                    <p style="color: #64748b;">Tech Lead</p>
-                </div>
-                <div class="team-member" style="transition: all 0.3s ease;" 
-                     onmouseover="this.style.transform='scale(1.02)'" 
-                     onmouseout="this.style.transform='scale(1)'">
-                    <img src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/adam.png" 
-                         alt="Adam Li" 
-                         style="transition: all 0.3s ease; cursor: pointer;"
-                         onmouseover="this.style.transform='scale(1.1)'" 
-                         onmouseout="this.style.transform='scale(1)'">
-                    <h3 style="color: black; margin-top: 1rem;">Adam Li</h3>
-                    <p style="color: #64748b;">Management</p>
-                </div>
-            </div>
-    
-            <h3 style="text-align: center; margin: 4rem 0 2rem; font-size: 1.75rem; color: #1e293b;">Advisors</h3>
-            
-            <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin: 2rem 0;">
-                <div class="advisor-card" style="background: #f8fafc; border-radius: 12px; padding: 2rem; text-align: left;">
-                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                        <img src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/profhu2.png" alt="Prof. Xiangen Hu" style="width: 120px; height: 120px; border-radius: 50%; margin-right: 1.5rem;">
-                        <h3 style="color: black; margin: 0;">
-                            <a href="https://www.polyu.edu.hk/apss/people/academic-staff/prof-hu-xiangen/" style="color: inherit; text-decoration: none;">
-                                Prof. Xiangen Hu
-                            </a>
-                        </h3>
-                    </div>
-                    <p style="color: #64748b; line-height: 1.8; margin: 0;">Professor Xiangen Hu is a renowned Psychologist and Computer Scientist. He is the Chair Professor of Learning Sciences and Technologies at Hong Kong Polytechnic University. He received his Doctor of Philosophy degree in Cognitive Psychology from the University of California, Irvine in 1991 and 1993 respectively. He took up an Assistant Professorship at The University of Memphis in 1993 and was promoted to Associate Professor in 2000 and Professor in the Department of Psychology in 2009. Meanwhile, he has been appointed Prof and Dean of the School of Psychology in the Central China Normal University since 2016 on a visiting basis where he has established good connections with the Chinese mainland. He joined PolyU in Dec 2023 as Director of the Institute for Higher Education Research and Development. His research areas include Mathematical Psychology, Research Design and Statistics, and Cognitive Psychology.</p>
-                </div>
-            
-                <div class="advisor-card" style="background: #f8fafc; border-radius: 12px; padding: 2rem; text-align: left;">
-                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                        <img src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/allen.png" alt="Dr. Allen Dorcas" style="width: 120px; height: 120px; border-radius: 50%; margin-right: 1.5rem;">
-                        <h3 style="color: black; margin: 0;">
-                            <a href="https://www.polyu.edu.hk/apss/people/academic-staff/dr-dorcas-allen/" style="color: inherit; text-decoration: none;">
-                                Dr. Allen Dorcas
-                            </a>
-                        </h3>
-                    </div>
-                    <p style="color: #64748b; line-height: 1.8; margin: 0;">Dr. Allen Dorcas is a distinguished Counselling Psychologist and educator with over 25 years of experience in psychology and counselling. He holds a PhD in Psychology from The University of Hong Kong and a Master’s in Counselling Psychology from the University of Montreal. Since 1995, he has been teaching at The Hong Kong Polytechnic University, where he has received multiple teaching excellence awards. Dr. Dorcas has also practiced as a Counselling Psychologist, working with diverse clients to foster resilience and self-discovery. With over 30 years of mindfulness practice, he integrates holistic approaches into his work, making him a trusted voice in mental wellness and a perfect fit for EmoBay’s mission.</p>
-                </div>
-            </section>
-    
-            <section style="max-width: 800px; margin: 2rem auto; background: #f8fafc; 
-                  border-radius: 12px; padding: 2rem; text-align: center;">
-                <h2 style="color: black; margin-bottom: 1.5rem;">Contact Us</h2>
-                <p style="color: #64748b; line-height: 1.8; margin: 0;">
-                    Have questions or want to join us?<br>
-                    Email us at:
-                    <a href="mailto:info@emobay.org" 
-                       style="color: #2563eb; text-decoration: none; font-weight: 500;">
-                        info@emobay.org
-                    </a>
-                </p>
-            </section>
-        </section>
-    
-        <!-- Footer -->
-        <footer style="background-color: #0c83a897; padding: 3rem 0; text-align: center; color: white; position: relative;">
-            <div style="margin-bottom: 2rem; display: flex; justify-content: center; gap: 2rem;">
-                <a href="https://www.instagram.com/try_emobay/" 
-                   style="color: white; text-decoration: none; transition: all 0.3s ease;" 
-                   onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='0.8'" 
-                   onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'">
-                    <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
-                </a>
-                <a href="mailto:info@emobay.org" 
-                   style="color: white; text-decoration: none; transition: all 0.3s ease;" 
-                   onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='0.8'" 
-                   onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'">
-                    <i class="fas fa-envelope" style="font-size: 1.5rem;"></i>
-                </a>
-            </div>
-            <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">© 2025 EmoBay. All rights reserved.</p>
-        </footer>
-    
-        <!-- Cursor-following image with lag effect -->
-        <img id="cursorLogo" src="https://github.com/emobay/emobay.github.io/blob/main/source/Artboard%2015.png?raw=true" alt="Cursor Logo">
-    
-        <script>
-            // Simple animation trigger for the hero elements
-            window.addEventListener('load', () => {
-                const animateElements = [document.getElementById('heroTitle'), 
-                                          document.getElementById('heroText'), 
-                                          document.getElementById('ctaButton')];
-                
-                animateElements.forEach(el => {
-                    if(el) {
-                        el.style.opacity = '1';
-                        el.style.transform = 'translateY(0)';
-                    }
-                });
-            });
-    
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-    
-            // Interactive header: hide on scroll down, show on scroll up
-            let lastScroll = 0;
-            window.addEventListener('scroll', () => {
-                const currentScroll = window.pageYOffset;
-                const header = document.querySelector('.header');
-                
-                if (currentScroll > lastScroll && currentScroll > 100) {
-                    header.style.transform = 'translateY(-100%)';
-                } else {
-                    header.style.transform = 'translateY(0)';
-                }
-                lastScroll = currentScroll;
-            });
-    
-            // Lagging cursor-following image
-            const cursorLogo = document.getElementById('cursorLogo');
-            let targetX = window.innerWidth / 2, targetY = window.innerHeight / 2;
-            let currentX = targetX, currentY = targetY;
-    
-            document.addEventListener('mousemove', (e) => {
-                targetX = e.clientX;
-                targetY = e.clientY;
-            });
-    
-            function animateCursor() {
-                // Apply easing for a lagging effect (adjust the 0.1 value to change the lag speed)
-                currentX += (targetX - currentX) * 0.1;
-                currentY += (targetY - currentY) * 0.1;
-                cursorLogo.style.left = currentX + 'px';
-                cursorLogo.style.top = currentY + 'px';
-                requestAnimationFrame(animateCursor);
-            }
-            animateCursor();
-        </script>
-    </body>
+            <h3 style="color: black; margin: 0;">
+              <a
+                href="https://www.polyu.edu.hk/apss/people/academic-staff/prof-hu-xiangen/"
+                style="color: inherit; text-decoration: none;"
+              >
+                Prof. Xiangen Hu
+              </a>
+            </h3>
+          </div>
+          <p style="color: #64748b; line-height: 1.8; margin: 0;">
+            Professor Xiangen Hu is a renowned Psychologist and Computer Scientist.
+            He is the Chair Professor of Learning Sciences and Technologies at Hong
+            Kong Polytechnic University. He received his Doctor of Philosophy
+            degree in Cognitive Psychology from the University of California, Irvine
+            in 1991 and 1993 respectively. He took up an Assistant Professorship at
+            The University of Memphis in 1993 and was promoted to Associate Professor in
+            2000 and Professor in the Department of Psychology in 2009. Meanwhile, he
+            has been appointed Prof and Dean of the School of Psychology in the Central
+            China Normal University since 2016 on a visiting basis where he has established
+            good connections with the Chinese mainland. He joined PolyU in Dec 2023 as
+            Director of the Institute for Higher Education Research and Development. His
+            research areas include Mathematical Psychology, Research Design and Statistics,
+            and Cognitive Psychology.
+          </p>
+        </div>
+
+        <!-- Advisor Card 2 -->
+        <div
+          class="advisor-card"
+          style="background: #f8fafc; border-radius: 12px; padding: 2rem; text-align: left;"
+        >
+          <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+            <!-- Advisor image wrapped in a link with hover effect -->
+            <a
+              href="https://www.polyu.edu.hk/apss/people/academic-staff/dr-dorcas-allen/"
+              style="text-decoration: none;"
+            >
+              <img
+                src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/allen.png"
+                alt="Dr. Allen Dorcas"
+                style="width: 120px; height: 120px; border-radius: 50%; margin-right: 1.5rem; cursor: pointer; transition: all 0.3s ease;"
+                onmouseover="this.style.transform='scale(1.1)'"
+                onmouseout="this.style.transform='scale(1)'"
+              />
+            </a>
+            <h3 style="color: black; margin: 0;">
+              <a
+                href="https://www.polyu.edu.hk/apss/people/academic-staff/dr-dorcas-allen/"
+                style="color: inherit; text-decoration: none;"
+              >
+                Dr. Allen Dorcas
+              </a>
+            </h3>
+          </div>
+          <p style="color: #64748b; line-height: 1.8; margin: 0;">
+            Dr. Allen Dorcas is a distinguished Counselling Psychologist and educator with
+            over 25 years of experience in psychology and counselling. He holds a PhD in
+            Psychology from The University of Hong Kong and a Master’s in Counselling Psychology
+            from the University of Montreal. Since 1995, he has been teaching at The Hong Kong
+            Polytechnic University, where he has received multiple teaching excellence awards.
+            Dr. Dorcas has also practiced as a Counselling Psychologist, working with diverse
+            clients to foster resilience and self-discovery. With over 30 years of mindfulness
+            practice, he integrates holistic approaches into his work, making him a trusted voice
+            in mental wellness and a perfect fit for EmoBay’s mission.
+          </p>
+        </div>
+      </section>
+
+      <section
+        style="max-width: 800px; margin: 2rem auto; background: #f8fafc; border-radius: 12px; padding: 2rem; text-align: center;"
+      >
+        <h2 style="color: black; margin-bottom: 1.5rem;">Contact Us</h2>
+        <p style="color: #64748b; line-height: 1.8; margin: 0;">
+          Have questions or want to join us?<br />
+          Email us at:
+          <a
+            href="mailto:info@emobay.org"
+            style="color: #2563eb; text-decoration: none; font-weight: 500;"
+            >info@emobay.org</a
+          >
+        </p>
+      </section>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      style="background-color: #0c83a897; padding: 3rem 0; text-align: center; color: white; position: relative;"
+    >
+      <div
+        style="margin-bottom: 2rem; display: flex; justify-content: center; gap: 2rem;"
+      >
+        <a
+          href="https://www.instagram.com/try_emobay/"
+          style="color: white; text-decoration: none; transition: all 0.3s ease;"
+          onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='0.8'"
+          onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'"
+          ><i class="fab fa-instagram" style="font-size: 1.5rem;"></i
+        ></a>
+        <a
+          href="mailto:info@emobay.org"
+          style="color: white; text-decoration: none; transition: all 0.3s ease;"
+          onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='0.8'"
+          onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'"
+          ><i class="fas fa-envelope" style="font-size: 1.5rem;"></i
+        ></a>
+      </div>
+      <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">
+        © 2025 EmoBay. All rights reserved.
+      </p>
+    </footer>
+
+    <!-- Cursor-following image with lag effect (initially hidden) -->
+    <img
+      id="cursorLogo"
+      src="https://github.com/emobay/emobay.github.io/blob/main/source/Artboard%2015.png?raw=true"
+      alt="Cursor Logo"
+    />
+
+    <script>
+      // Animate hero elements on load
+      window.addEventListener("load", () => {
+        const animateElements = [
+          document.getElementById("heroTitle"),
+          document.getElementById("heroText"),
+          document.getElementById("ctaButton")
+        ];
+        animateElements.forEach(el => {
+          if (el) {
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+          }
+        });
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"
+          });
+        });
+      });
+
+      // Hide/show header on scroll
+      let lastScroll = 0;
+      window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+        const header = document.querySelector(".header");
+        if (currentScroll > lastScroll && currentScroll > 100) {
+          header.style.transform = "translateY(-100%)";
+        } else {
+          header.style.transform = "translateY(0)";
+        }
+        lastScroll = currentScroll;
+      });
+
+      // Cursor-following image with lag effect
+      const cursorLogo = document.getElementById("cursorLogo");
+      let targetX = window.innerWidth / 2,
+        targetY = window.innerHeight / 2;
+      let currentX = targetX,
+        currentY = targetY;
+
+      // Flag to track first mouse move
+      let mouseDetected = false;
+      document.addEventListener("mousemove", (e) => {
+        if (!mouseDetected) {
+          mouseDetected = true;
+          // Show the cursor-following image on first mousemove
+          cursorLogo.style.display = "block";
+        }
+        targetX = e.clientX;
+        targetY = e.clientY;
+      });
+
+      function animateCursor() {
+        currentX += (targetX - currentX) * 0.1;
+        currentY += (targetY - currentY) * 0.1;
+        cursorLogo.style.left = currentX + "px";
+        cursorLogo.style.top = currentY + "px";
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+    </script>
+  </body>
 </html>
