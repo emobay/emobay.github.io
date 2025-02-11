@@ -14,62 +14,75 @@
       href="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/logo.jpg"
     />
     <style>
+      /* Reset & Base Styles */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         font-family: "Segoe UI", sans-serif;
       }
-
       body {
         background-color: #f8fafc;
       }
-
       :root {
         --primary: #4f46e5;
         --secondary: #818cf8;
         --accent: #10b981;
         --text: #1e293b;
       }
-
+      
+      /* Upgraded Header Design */
       .header {
-        background: white;
-        padding: 1rem 5%;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg, #ffffff, #f0f4ff);
+        padding: 1.5rem 5%;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         position: sticky;
         top: 0;
         z-index: 100;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        transition: padding 0.3s ease, background 0.3s ease;
       }
-
+      /* Shrink header on scroll */
+      .header.scrolled {
+        padding: 0.75rem 5%;
+        background: linear-gradient(135deg, #ffffff, #e0e7ff);
+      }
+      
+      /* Logo and Branding */
       .logo-container {
         display: flex;
         align-items: center;
         gap: 0.75rem;
         cursor: pointer;
+        transition: transform 0.3s ease;
       }
-
+      .logo-container:hover {
+        transform: scale(1.05);
+      }
       .logo-container img {
-        height: 30px;
+        height: 35px;
         width: auto;
+        transition: transform 0.3s ease;
       }
-
       .logo-container span {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         font-weight: 600;
         color: var(--text);
+        transition: color 0.3s ease;
       }
-
+      .logo-container:hover span {
+        color: var(--primary);
+      }
+      
+      /* Header Icons & Social Links */
       .header-icons {
         display: flex;
         align-items: center;
-        gap: 0rem;
+        gap: 1rem;
         position: relative;
       }
-
-      /* Hamburger menu button for mobile */
       .menu-toggle {
         background: none;
         border: none;
@@ -77,30 +90,31 @@
         cursor: pointer;
         display: none;
         color: var(--text);
+        transition: transform 0.3s ease;
       }
-
-      /* Social icons container */
+      .menu-toggle:hover {
+        transform: rotate(90deg);
+      }
       .social-icons {
         display: flex;
-        gap: 0.5rem;
+        gap: 1rem;
+        opacity: 1;
+        transition: opacity 0.3s ease;
       }
-
       .header-icons a {
-        color: black;
+        color: var(--text);
         text-decoration: none;
-        transition: all 0.3s ease;
+        transition: transform 0.3s ease, color 0.3s ease;
       }
-
       .header-icons a:hover {
         color: var(--primary);
         transform: scale(1.1);
       }
-
-      /* Hide text labels by default */
       .social-text {
         display: none;
       }
-
+      
+      /* Mobile Styles */
       @media (max-width: 600px) {
         .menu-toggle {
           display: block;
@@ -115,11 +129,11 @@
           padding: 0.5rem;
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
           z-index: 10;
+          animation: slideDown 0.3s ease-out forwards;
         }
         .social-icons.show {
           display: flex;
         }
-        /* Show text labels in mobile dropdown */
         .social-text {
           display: inline;
           margin-left: 0.5rem;
@@ -127,13 +141,23 @@
           color: var(--text);
         }
       }
-
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      /* Other existing styles remain unchanged */
       .hero {
         text-align: center;
         padding: 15rem 5% 4rem;
         background: linear-gradient(135deg, #f0f4ff 0%, #f8fafc 100%);
       }
-
       .hero h1 {
         font-size: 2.8rem;
         margin-bottom: 1.5rem;
@@ -141,7 +165,6 @@
         max-width: 800px;
         margin: 0 auto 2rem;
       }
-
       .hero p {
         font-size: 1.1rem;
         color: #64748b;
@@ -149,7 +172,6 @@
         margin: 0 auto 2.5rem;
         line-height: 1.6;
       }
-
       .cta-button {
         margin-bottom: 10rem;
         background-color: white;
@@ -163,13 +185,11 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         border: 2px solid var(--accent);
       }
-
       .cta-button:hover {
         transform: translateY(-2px);
         background-color: #bdccd4;
         color: white;
       }
-
       .features {
         padding: 4rem 5%;
         display: grid;
@@ -177,7 +197,6 @@
         gap: 2rem;
         background: white;
       }
-
       .feature-card {
         text-align: center;
         padding: 2rem;
@@ -185,29 +204,24 @@
         background: #fff;
         border: 1px solid #e2e8f0;
       }
-
       .feature-card h3 {
         font-size: 1.5rem;
         margin-bottom: 1rem;
         color: var(--primary);
       }
-
       .feature-card p {
         font-size: 1rem;
         color: #64748b;
         line-height: 1.6;
       }
-
       .testimonials {
         padding: 4rem 5%;
         background: #f8fafc;
       }
-
       .team-section {
         padding: 4rem 5%;
         background: white;
       }
-
       .team-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -215,12 +229,10 @@
         max-width: 1200px;
         margin: 2rem auto;
       }
-
       .team-member {
         text-align: center;
         padding: 1.5rem;
       }
-
       .team-member img {
         width: 120px;
         height: 120px;
@@ -231,7 +243,6 @@
         cursor: pointer;
         transition: all 0.3s ease;
       }
-
       .advisor-card {
         background: #f8fafc;
         border-radius: 12px;
@@ -239,36 +250,23 @@
         margin: 2rem 0;
         text-align: left;
       }
-
       footer {
         background: #005069;
         color: white;
         padding: 3rem 5%;
         text-align: center;
       }
-
-      .social-icon {
-        color: white;
-        font-size: 1.5rem;
-        margin: 0 1rem;
-        transition: opacity 0.3s ease;
-      }
-
-      .social-icon:hover {
-        opacity: 0.8;
-      }
-
+      .social-icon,
       .email-icon {
         color: white;
         font-size: 1.5rem;
         margin: 0 1rem;
         transition: opacity 0.3s ease;
       }
-
+      .social-icon:hover,
       .email-icon:hover {
         opacity: 0.8;
       }
-
       /* Cursor-following image with lag effect – initially hidden */
       #cursorLogo {
         position: fixed;
@@ -283,6 +281,25 @@
         display: none;
       }
     </style>
+    <script>
+      // Add or remove the 'scrolled' class to adjust header style on scroll
+      window.addEventListener("scroll", function () {
+        var header = document.querySelector(".header");
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+      // Toggle mobile social icons dropdown
+      document.addEventListener("DOMContentLoaded", function () {
+        var menuToggle = document.querySelector(".menu-toggle");
+        var socialIcons = document.querySelector(".social-icons");
+        menuToggle.addEventListener("click", function () {
+          socialIcons.classList.toggle("show");
+        });
+      });
+    </script>
   </head>
   <body>
     <header class="header">
@@ -338,31 +355,74 @@
         </div>
       </div>
     </header>
+  
 
     <section class="hero" style="position: relative; overflow: hidden;">
-      <h1
-        style="opacity: 0; transform: translateY(20px); transition: all 1s ease;"
-        id="heroTitle"
-      >
+      <h1 id="heroTitle">
         Your Compassionate AI Companion for Emotional Wellbeing
       </h1>
-      <p
-        style="opacity: 0; transform: translateY(20px); transition: all 1s ease 0.2s;"
-        id="heroText"
-      >
+      <p id="heroText">
         Your AI psychosocial bestie available anytime, anywhere!
       </p>
-      <a
-        href="https://chat.emobay.org"
-        class="cta-button"
-        style="opacity: 0; transform: translateY(20px); transition: all 1s ease 0.4s;"
-        id="ctaButton"
-        onmouseover="this.style.boxShadow='0 6px 12px rgba(0,0,0,0.15)'; this.style.backgroundColor='#4f46e5'"
-        onmouseout="this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)'; this.style.backgroundColor='white'"
-      >
+      <a href="https://chat.emobay.org" class="cta-button" id="ctaButton">
         Try EmoBay (Demo)
       </a>
     </section>
+    
+    <style>
+      /* Keyframes for fade in & slide up animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    
+      /* Animate hero text elements */
+      #heroTitle,
+      #heroText,
+      .cta-button {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s ease forwards;
+      }
+      /* Stagger animations */
+      #heroTitle {
+        animation-delay: 0s;
+      }
+      #heroText {
+        animation-delay: 0.2s;
+      }
+      .cta-button {
+        animation-delay: 0.4s;
+      }
+    
+      /* Upgraded Button Design */
+      .cta-button {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text);
+        background-color: white;
+        border: 2px solid var(--accent);
+        border-radius: 8px;
+        text-decoration: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      }
+      .cta-button:hover {
+        transform: translateY(-2px) scale(1.05);
+        background: linear-gradient(45deg, #4f46e5, #818cf8);
+        color: white;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+    </style>
+    
 
     <!-- Features Section -->
     <section
