@@ -450,180 +450,207 @@
       </div>
     </section>
 
-    <!-- Current Progress Section -->
-    <section
-      id="current-progress"
-      style="padding: 4rem 5%; background: #f8fafc; text-align: center;"
-    >
-      <h2
-        style="margin-bottom: 2rem; font-size: 2rem; color: #1e293b;"
-      >
-        Current Progress
-      </h2>
-      <img
-        src="https://github.com/emobay/emobay.github.io/blob/main/source/banner.png?raw=true"
-        alt="Current Progress"
-        style="max-width: 100%; height: auto; border-radius: 12px;"
-      />
-    </section>
+<!-- Current Progress Section -->
+<section id="current-progress" style="padding: 4rem 5%; background: #f8fafc; text-align: center;">
+  <h2 class="current-progress-title" style="margin-bottom: 2rem; font-size: 2rem; color: #1e293b;">
+    Current Progress
+  </h2>
+  <img
+    src="https://github.com/emobay/emobay.github.io/blob/main/source/banner.png?raw=true"
+    alt="Current Progress"
+    class="current-progress-img"
+  />
+</section>
 
-    <!-- Team Section -->
-    <section class="team-section" id="team" style="position: relative;">
-      <h2
-        style="text-align: center; margin-bottom: 3rem; font-size: 2rem; color: #1e293b;"
-      >
-        Our Team
-      </h2>
-      <div class="team-grid">
-        <div
-          class="team-member"
-          style="transition: all 0.3s ease;"
-          onmouseover="this.style.transform='scale(1.02)'"
-          onmouseout="this.style.transform='scale(1)'"
-        >
-          <img
-            src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/eunice.png"
-            alt="Eunice Mak"
-            style="transition: all 0.3s ease; cursor: pointer;"
-            onmouseover="this.style.transform='scale(1.1)'"
-            onmouseout="this.style.transform='scale(1)'"
-          />
-          <h3 style="color: black; margin-top: 1rem;">Eunice Mak</h3>
-          <p style="color: #64748b;">Director</p>
-        </div>
-        <div
-          class="team-member"
-          style="transition: all 0.3s ease;"
-          onmouseover="this.style.transform='scale(1.02)'"
-          onmouseout="this.style.transform='scale(1)'"
-        >
-          <img
-            src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/ju.png"
-            alt="Ju Lin"
-            style="transition: all 0.3s ease; cursor: pointer;"
-            onmouseover="this.style.transform='scale(1.1)'"
-            onmouseout="this.style.transform='scale(1)'"
-          />
-          <h3 style="color: black; margin-top: 1rem;">Ju Lin</h3>
-          <p style="color: #64748b;">Tech Lead</p>
-        </div>
-        <div
-          class="team-member"
-          style="transition: all 0.3s ease;"
-          onmouseover="this.style.transform='scale(1.02)'"
-          onmouseout="this.style.transform='scale(1)'"
-        >
-          <img
-            src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/adam.png"
-            alt="Adam Li"
-            style="transition: all 0.3s ease; cursor: pointer;"
-            onmouseover="this.style.transform='scale(1.1)'"
-            onmouseout="this.style.transform='scale(1)'"
-          />
-          <h3 style="color: black; margin-top: 1rem;">Adam Li</h3>
-          <p style="color: #64748b;">Management</p>
-        </div>
+<style>
+  /* Slide-in animation for the title */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Fade-in animation for the image */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Pulse border animation for the image */
+  @keyframes pulseBorder {
+    0% {
+      box-shadow: 0 0 0 0 rgba(30, 41, 59, 0.5);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(30, 41, 59, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(30, 41, 59, 0);
+    }
+  }
+
+
+  .current-progress-img {
+    height: auto;
+    border-radius: 12px;
+    max-width: 95%;
+    /* Apply fadeIn on load and a continuous pulse effect */
+    animation: fadeIn 1s ease-in-out, pulseBorder 2s infinite;
+    transition: transform 0.3s ease;
+  }
+
+  /* Add a hover effect to scale the image up */
+  .current-progress-img:hover {
+    transform: scale(1.05);
+  }
+
+  /* For wider viewports, limit image width to 85% */
+  @media (min-width: 768px) {
+    .current-progress-img {
+      max-width: 85%;
+    }
+  }
+</style>
+
+
+
+   <!-- Team Section -->
+<section class="team-section" id="team" style="position: relative; animation: fadeInUp 1s ease-out;">
+  <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2rem; color: #1e293b;">Our Team</h2>
+  <div class="team-grid">
+    <!-- Team Member: Eunice Mak -->
+    <div class="team-member" style="transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+      <img src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/eunice.png" alt="Eunice Mak" style="transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"/>
+      <h3 style="color: black; margin-top: 1rem;">Eunice Mak</h3>
+      <p style="color: #64748b;">Director</p>
+      <div class="team-icons" style="margin-top: 0.5rem;">
+        <a href="mailto:eunice@emobay.org" title="Email" style="margin: 0 0.5rem; color: #1e293b; transition: color 0.3s ease;"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/onyumak/" target="_blank" title="LinkedIn" style="margin: 0 0.5rem; color: #1e293b; transition: color 0.3s ease;"><i class="fa-brands fa-linkedin"></i></a>
       </div>
+    </div>
+    
+    <!-- Team Member: Ju Lin -->
+    <div class="team-member" style="transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+      <img src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/ju.png" alt="Ju Lin" style="transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"/>
+      <h3 style="color: black; margin-top: 1rem;">Ju Lin</h3>
+      <p style="color: #64748b;">Tech Lead</p>
+      <div class="team-icons" style="margin-top: 0.5rem;">
+        <a href="mailto:ju@emobay.org" title="Email" style="margin: 0 0.5rem; color: #1e293b; transition: color 0.3s ease;"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://julin.org" target="_blank" title="Personal Website" style="margin: 0 0.5rem; color: #1e293b; transition: color 0.3s ease;"><i class="fa-solid fa-globe"></i></a>
+        <a href="https://linkedin.com/in/linju" target="_blank" title="LinkedIn" style="margin: 0 0.5rem; color: #1e293b; transition: color 0.3s ease;"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
+    
+    <!-- Team Member: Adam Li -->
+    <div class="team-member" style="transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+      <img src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/adam.png" alt="Adam Li" style="transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"/>
+      <h3 style="color: black; margin-top: 1rem;">Adam Li</h3>
+      <p style="color: #64748b;">Management</p>
+      <div class="team-icons" style="margin-top: 0.5rem;">
+        <a href="mailto:adam@emobay.org" title="Email" style="margin: 0 0.5rem; color: #1e293b; transition: color 0.3s ease;"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/adam-lee-1180492b1" target="_blank" title="LinkedIn" style="margin: 0 0.5rem; color: #1e293b; transition: color 0.3s ease;"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
 
-      <h3
-        style="text-align: center; margin: 4rem 0 2rem; font-size: 1.75rem; color: #1e293b;"
-      >
-        Advisors
-      </h3>
+  <h3 style="text-align: center; margin: 4rem 0 2rem; font-size: 1.75rem; color: #1e293b;">Advisors</h3>
 
-      <section
-        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin: 2rem 0;"
-      >
-        <!-- Advisor Card 1 -->
-        <div
-          class="advisor-card"
-          style="background: #f8fafc; border-radius: 12px; padding: 2rem; text-align: left;"
-        >
-          <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-            <a
-              href="https://www.polyu.edu.hk/apss/people/academic-staff/prof-hu-xiangen/"
-              style="text-decoration: none;"
-            >
-              <img
-                src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/profhu2.png"
-                alt="Prof. Xiangen Hu"
-                style="width: 120px; height: 120px; border-radius: 50%; margin-right: 1.5rem; cursor: pointer; transition: all 0.3s ease;"
-                onmouseover="this.style.transform='scale(1.1)'"
-                onmouseout="this.style.transform='scale(1)'"
-              />
-            </a>
-            <h3 style="color: black; margin: 0;">
-              <a
-                href="https://www.polyu.edu.hk/apss/people/academic-staff/prof-hu-xiangen/"
-                style="color: inherit; text-decoration: none;"
-              >
-                Prof. Xiangen Hu
-              </a>
-            </h3>
-          </div>
-          <p style="color: #64748b; line-height: 1.8; margin: 0;">
-            Professor Xiangen Hu is a renowned Psychologist and Computer Scientist.
-            He is the Chair Professor of Learning Sciences and Technologies at Hong Kong Polytechnic University.
-            He received his Doctor of Philosophy degree in Cognitive Psychology from the University of California, Irvine in 1991 and 1993 respectively.
-            He took up an Assistant Professorship at The University of Memphis in 1993 and was promoted to Associate Professor in 2000 and Professor in the Department of Psychology in 2009.
-            Meanwhile, he has been appointed Prof and Dean of the School of Psychology in the Central China Normal University since 2016 on a visiting basis where he has established good connections with the Chinese mainland.
-            He joined PolyU in Dec 2023 as Director of the Institute for Higher Education Research and Development.
-            His research areas include Mathematical Psychology, Research Design and Statistics, and Cognitive Psychology.
-          </p>
-        </div>
+  <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin: 2rem 0;">
+    <!-- Advisor Card 1 -->
+    <div class="advisor-card" style="background: #f8fafc; border-radius: 12px; padding: 2rem; text-align: left; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+      <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+        <a href="https://www.polyu.edu.hk/apss/people/academic-staff/prof-hu-xiangen/" style="text-decoration: none;">
+          <img src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/profhu2.png" alt="Prof. Xiangen Hu" style="width: 120px; height: 120px; border-radius: 50%; margin-right: 1.5rem; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"/>
+        </a>
+        <h3 style="color: black; margin: 0;">
+          <a href="https://www.polyu.edu.hk/apss/people/academic-staff/prof-hu-xiangen/" style="color: inherit; text-decoration: none;">Prof. Xiangen Hu</a>
+        </h3>
+      </div>
+      <p style="color: #64748b; line-height: 1.8; margin: 0;">
+        Professor Xiangen Hu is a renowned Psychologist and Computer Scientist. He is the Chair Professor of Learning Sciences and Technologies at Hong Kong Polytechnic University. He received his Doctor of Philosophy degree in Cognitive Psychology from the University of California, Irvine in 1991 and 1993 respectively. He took up an Assistant Professorship at The University of Memphis in 1993 and was promoted to Associate Professor in 2000 and Professor in the Department of Psychology in 2009. Meanwhile, he has been appointed Prof and Dean of the School of Psychology in the Central China Normal University since 2016 on a visiting basis where he has established good connections with the Chinese mainland. He joined PolyU in Dec 2023 as Director of the Institute for Higher Education Research and Development. His research areas include Mathematical Psychology, Research Design and Statistics, and Cognitive Psychology.
+      </p>
+    </div>
 
-        <!-- Advisor Card 2 -->
-        <div
-          class="advisor-card"
-          style="background: #f8fafc; border-radius: 12px; padding: 2rem; text-align: left;"
-        >
-          <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-            <a
-              href="https://www.polyu.edu.hk/apss/people/academic-staff/dr-dorcas-allen/"
-              style="text-decoration: none;"
-            >
-              <img
-                src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/allen.png"
-                alt="Dr. Allen Dorcas"
-                style="width: 120px; height: 120px; border-radius: 50%; margin-right: 1.5rem; cursor: pointer; transition: all 0.3s ease;"
-                onmouseover="this.style.transform='scale(1.1)'"
-                onmouseout="this.style.transform='scale(1)'"
-              />
-            </a>
-            <h3 style="color: black; margin: 0;">
-              <a
-                href="https://www.polyu.edu.hk/apss/people/academic-staff/dr-dorcas-allen/"
-                style="color: inherit; text-decoration: none;"
-              >
-                Dr. Allen Dorcas
-              </a>
-            </h3>
-          </div>
-          <p style="color: #64748b; line-height: 1.8; margin: 0;">
-            Dr. Allen Dorcas is a distinguished Counselling Psychologist and educator with over 25 years of experience in psychology and counselling.
-            He holds a PhD in Psychology from The University of Hong Kong and a Master’s in Counselling Psychology from the University of Montreal.
-            Since 1995, he has been teaching at The Hong Kong Polytechnic University, where he has received multiple teaching excellence awards.
-            Dr. Dorcas has also practiced as a Counselling Psychologist, working with diverse clients to foster resilience and self-discovery.
-            With over 30 years of mindfulness practice, he integrates holistic approaches into his work, making him a trusted voice in mental wellness and a perfect fit for EmoBay’s mission.
-          </p>
-        </div>
-      </section>
+    <!-- Advisor Card 2 -->
+    <div class="advisor-card" style="background: #f8fafc; border-radius: 12px; padding: 2rem; text-align: left; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+      <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+        <a href="https://www.polyu.edu.hk/apss/people/academic-staff/dr-dorcas-allen/" style="text-decoration: none;">
+          <img src="https://raw.githubusercontent.com/emobay/emobay.github.io/refs/heads/main/source/allen.png" alt="Dr. Allen Dorcas" style="width: 120px; height: 120px; border-radius: 50%; margin-right: 1.5rem; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"/>
+        </a>
+        <h3 style="color: black; margin: 0;">
+          <a href="https://www.polyu.edu.hk/apss/people/academic-staff/dr-dorcas-allen/" style="color: inherit; text-decoration: none;">Dr. Allen Dorcas</a>
+        </h3>
+      </div>
+      <p style="color: #64748b; line-height: 1.8; margin: 0;">
+        Dr. Allen Dorcas is a distinguished Counselling Psychologist and educator with over 25 years of experience in psychology and counselling. He holds a PhD in Psychology from The University of Hong Kong and a Master’s in Counselling Psychology from the University of Montreal. Since 1995, he has been teaching at The Hong Kong Polytechnic University, where he has received multiple teaching excellence awards. Dr. Dorcas has also practiced as a Counselling Psychologist, working with diverse clients to foster resilience and self-discovery. With over 30 years of mindfulness practice, he integrates holistic approaches into his work, making him a trusted voice in mental wellness and a perfect fit for EmoBay’s mission.
+      </p>
+    </div>
+  </section>
 
-      <section
-        style="max-width: 800px; margin: 2rem auto; background: #f8fafc; border-radius: 12px; padding: 2rem; text-align: center;"
-      >
-        <h2 style="color: black; margin-bottom: 1.5rem;">Contact Us</h2>
-        <p style="color: #64748b; line-height: 1.8; margin: 0;">
-          Have questions or want to join us?<br />
-          Email us at:
-          <a
-            href="mailto:info@emobay.org"
-            style="color: #2563eb; text-decoration: none; font-weight: 500;"
-            >info@emobay.org</a
-          >
-        </p>
-      </section>
-    </section>
+  <section style="max-width: 800px; margin: 2rem auto; background: #f8fafc; border-radius: 12px; padding: 2rem; text-align: center;">
+    <h2 style="color: black; margin-bottom: 1.5rem;">Contact Us</h2>
+    <p style="color: #64748b; line-height: 1.8; margin: 0;">
+      Have questions or want to join us?<br />
+      Email us at:
+      <a href="mailto:info@emobay.org" style="color: #2563eb; text-decoration: none; font-weight: 500;">info@emobay.org</a>
+    </p>
+  </section>
+</section>
+
+
+<style>
+  /* Fade-in animation for the team section */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hover color change for team icons */
+  .team-icons a:hover {
+    color: #2563eb;
+  }
+
+  /* Additional box-shadow on hover for team member cards */
+  .team-member:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Additional effects for advisor cards */
+  .advisor-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .advisor-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive grid for team members */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+  }
+</style>
+
 
     <!-- Footer -->
     <footer
