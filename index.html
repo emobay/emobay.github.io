@@ -66,6 +66,23 @@
         display: flex;
         align-items: center;
         gap: 0rem;
+        position: relative;
+      }
+
+      /* Hamburger menu button for mobile */
+      .menu-toggle {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        display: none;
+        color: var(--text);
+      }
+
+      /* Social icons container */
+      .social-icons {
+        display: flex;
+        gap: 0.5rem;
       }
 
       .header-icons a {
@@ -77,6 +94,26 @@
       .header-icons a:hover {
         color: var(--primary);
         transform: scale(1.1);
+      }
+
+      @media (max-width: 600px) {
+        .menu-toggle {
+          display: block;
+        }
+        .social-icons {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background: white;
+          padding: 0.5rem;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          z-index: 10;
+        }
+        .social-icons.show {
+          display: flex;
+        }
       }
 
       .hero {
@@ -245,35 +282,45 @@
         />
         <span>EmoBay</span>
       </div>
-      <!-- Header icons (email, Instagram, X, and LinkedIn) -->
-<div class="header-icons">
-  <a
-    href="https://www.instagram.com/try_emobay/"
-    class="social-icon"
-    target="_blank"
-  >
-    <i class="fab fa-instagram"></i>
-  
-  <a
-    href="https://x.com/try_emobay"
-    class="social-icon"
-    target="_blank"
-  >
-    <i class="fab fa-twitter"></i>
-  </a>
-  <a
-    href="https://www.linkedin.com/company/emobay"
-    class="social-icon"
-    target="_blank"
-  >
-    <i class="fab fa-linkedin"></i>
-  </a>
-  <a href="mailto:info@emobay.org" class="email-icon">
-    <i class="fas fa-envelope"></i>
-  </a>
-  </a>
-</div>
-
+      <!-- Header icons with hamburger menu for mobile -->
+      <div class="header-icons">
+        <button class="menu-toggle" aria-label="Toggle social menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="social-icons">
+          <a
+            href="https://www.instagram.com/try_emobay/"
+            class="social-icon"
+            target="_blank"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://x.com/try_emobay"
+            class="social-icon"
+            target="_blank"
+            aria-label="Twitter"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/company/emobay"
+            class="social-icon"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href="mailto:info@emobay.org"
+            class="email-icon"
+            aria-label="Email"
+          >
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
     </header>
 
     <section class="hero" style="position: relative; overflow: hidden;">
@@ -477,7 +524,6 @@
           style="background: #f8fafc; border-radius: 12px; padding: 2rem; text-align: left;"
         >
           <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-            <!-- Advisor image wrapped in a link with hover effect -->
             <a
               href="https://www.polyu.edu.hk/apss/people/academic-staff/prof-hu-xiangen/"
               style="text-decoration: none;"
@@ -501,18 +547,12 @@
           </div>
           <p style="color: #64748b; line-height: 1.8; margin: 0;">
             Professor Xiangen Hu is a renowned Psychologist and Computer Scientist.
-            He is the Chair Professor of Learning Sciences and Technologies at Hong
-            Kong Polytechnic University. He received his Doctor of Philosophy
-            degree in Cognitive Psychology from the University of California, Irvine
-            in 1991 and 1993 respectively. He took up an Assistant Professorship at
-            The University of Memphis in 1993 and was promoted to Associate Professor in
-            2000 and Professor in the Department of Psychology in 2009. Meanwhile, he
-            has been appointed Prof and Dean of the School of Psychology in the Central
-            China Normal University since 2016 on a visiting basis where he has established
-            good connections with the Chinese mainland. He joined PolyU in Dec 2023 as
-            Director of the Institute for Higher Education Research and Development. His
-            research areas include Mathematical Psychology, Research Design and Statistics,
-            and Cognitive Psychology.
+            He is the Chair Professor of Learning Sciences and Technologies at Hong Kong Polytechnic University.
+            He received his Doctor of Philosophy degree in Cognitive Psychology from the University of California, Irvine in 1991 and 1993 respectively.
+            He took up an Assistant Professorship at The University of Memphis in 1993 and was promoted to Associate Professor in 2000 and Professor in the Department of Psychology in 2009.
+            Meanwhile, he has been appointed Prof and Dean of the School of Psychology in the Central China Normal University since 2016 on a visiting basis where he has established good connections with the Chinese mainland.
+            He joined PolyU in Dec 2023 as Director of the Institute for Higher Education Research and Development.
+            His research areas include Mathematical Psychology, Research Design and Statistics, and Cognitive Psychology.
           </p>
         </div>
 
@@ -522,7 +562,6 @@
           style="background: #f8fafc; border-radius: 12px; padding: 2rem; text-align: left;"
         >
           <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-            <!-- Advisor image wrapped in a link with hover effect -->
             <a
               href="https://www.polyu.edu.hk/apss/people/academic-staff/dr-dorcas-allen/"
               style="text-decoration: none;"
@@ -545,15 +584,11 @@
             </h3>
           </div>
           <p style="color: #64748b; line-height: 1.8; margin: 0;">
-            Dr. Allen Dorcas is a distinguished Counselling Psychologist and educator with
-            over 25 years of experience in psychology and counselling. He holds a PhD in
-            Psychology from The University of Hong Kong and a Master’s in Counselling Psychology
-            from the University of Montreal. Since 1995, he has been teaching at The Hong Kong
-            Polytechnic University, where he has received multiple teaching excellence awards.
-            Dr. Dorcas has also practiced as a Counselling Psychologist, working with diverse
-            clients to foster resilience and self-discovery. With over 30 years of mindfulness
-            practice, he integrates holistic approaches into his work, making him a trusted voice
-            in mental wellness and a perfect fit for EmoBay’s mission.
+            Dr. Allen Dorcas is a distinguished Counselling Psychologist and educator with over 25 years of experience in psychology and counselling.
+            He holds a PhD in Psychology from The University of Hong Kong and a Master’s in Counselling Psychology from the University of Montreal.
+            Since 1995, he has been teaching at The Hong Kong Polytechnic University, where he has received multiple teaching excellence awards.
+            Dr. Dorcas has also practiced as a Counselling Psychologist, working with diverse clients to foster resilience and self-discovery.
+            With over 30 years of mindfulness practice, he integrates holistic approaches into his work, making him a trusted voice in mental wellness and a perfect fit for EmoBay’s mission.
           </p>
         </div>
       </section>
@@ -575,26 +610,49 @@
     </section>
 
     <!-- Footer -->
-<footer style="background-color: #0c83a897; padding: 3rem 0; text-align: center; color: white; position: relative;">
-  <div style="margin-bottom: 2rem; display: flex; justify-content: center; gap: 2rem;">
-    <a href="https://www.instagram.com/try_emobay/" style="color: white; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='0.8'" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'">
-      <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
-    </a>
-    <a href="https://x.com/try_emobay" style="color: white; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='0.8'" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'">
-      <i class="fab fa-twitter" style="font-size: 1.5rem;"></i>
-    </a>
-    <a href="https://www.linkedin.com/company/emobay/" style="color: white; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='0.8'" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'">
-      <i class="fab fa-linkedin" style="font-size: 1.5rem;"></i>
-    </a>
-    <a href="mailto:info@emobay.org" style="color: white; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='0.8'" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'">
-      <i class="fas fa-envelope" style="font-size: 1.5rem;"></i>
-    </a>
-  </div>
-  <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">
-    © 2025 EmoBay. All rights reserved.
-  </p>
-</footer>
-
+    <footer
+      style="background-color: #0c83a897; padding: 3rem 0; text-align: center; color: white; position: relative;"
+    >
+      <div
+        style="margin-bottom: 2rem; display: flex; justify-content: center; gap: 2rem;"
+      >
+        <a
+          href="https://www.instagram.com/try_emobay/"
+          style="color: white; text-decoration: none; transition: all 0.3s ease;"
+          onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='0.8'"
+          onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'"
+        >
+          <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
+        </a>
+        <a
+          href="https://x.com/try_emobay"
+          style="color: white; text-decoration: none; transition: all 0.3s ease;"
+          onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='0.8'"
+          onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'"
+        >
+          <i class="fab fa-twitter" style="font-size: 1.5rem;"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/company/emobay/"
+          style="color: white; text-decoration: none; transition: all 0.3s ease;"
+          onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='0.8'"
+          onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'"
+        >
+          <i class="fab fa-linkedin" style="font-size: 1.5rem;"></i>
+        </a>
+        <a
+          href="mailto:info@emobay.org"
+          style="color: white; text-decoration: none; transition: all 0.3s ease;"
+          onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='0.8'"
+          onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'"
+        >
+          <i class="fas fa-envelope" style="font-size: 1.5rem;"></i>
+        </a>
+      </div>
+      <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">
+        © 2025 EmoBay. All rights reserved.
+      </p>
+    </footer>
 
     <!-- Cursor-following image with lag effect (initially hidden) -->
     <img
@@ -645,22 +703,18 @@
       // Cursor-following image with lag effect
       const cursorLogo = document.getElementById("cursorLogo");
       let targetX = window.innerWidth / 2,
-        targetY = window.innerHeight / 2;
+          targetY = window.innerHeight / 2;
       let currentX = targetX,
-        currentY = targetY;
-
-      // Flag to track first mouse move
+          currentY = targetY;
       let mouseDetected = false;
       document.addEventListener("mousemove", (e) => {
         if (!mouseDetected) {
           mouseDetected = true;
-          // Show the cursor-following image on first mousemove
           cursorLogo.style.display = "block";
         }
         targetX = e.clientX;
         targetY = e.clientY;
       });
-
       function animateCursor() {
         currentX += (targetX - currentX) * 0.1;
         currentY += (targetY - currentY) * 0.1;
@@ -669,6 +723,17 @@
         requestAnimationFrame(animateCursor);
       }
       animateCursor();
+
+      // Toggle social icons dropdown on mobile
+      document.addEventListener("DOMContentLoaded", function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const socialIcons = document.querySelector('.social-icons');
+        if (menuToggle && socialIcons) {
+          menuToggle.addEventListener('click', () => {
+            socialIcons.classList.toggle('show');
+          });
+        }
+      });
     </script>
   </body>
 </html>
